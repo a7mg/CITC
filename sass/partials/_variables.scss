@@ -1,0 +1,75 @@
+// Some people like naming based on where the color
+// will be used while others prefer names that
+// represent the color
+
+$red: #FF0000;
+$white: #FFFFFF;
+$gray: #808080;
+$pink: #FFCBDB;
+$brown: #964B00;
+$orange: #FF7F00;
+$yellow: #FFFF00;
+$green: #00FF00;
+$cyan: #00FFFF;
+$blue: #0000FF;
+$violet: #7F00FF;
+$black: #000000;
+$duke-blue: #001A57;
+$blue-gray: #6699CC;
+$main-green: #00647D;
+$alice-blue: #F0F8FF;
+$ash-gray: #B2BEB5;
+
+$default-color: #4a452a;
+$primary-font-color: #202f55;
+$main-elements-color: #ff2828;
+$primary-elements-color: #e8fdf9;
+$border-color: #5ac7ef;
+
+$break-mobile: 320px;
+$break-small: 768px;
+$break-large: 1024px;
+
+$media-phoneS: "only screen and (max-width : 320px)";
+$media-phone: "only screen and (max-width : 480px)";
+$media-small: "only screen and (max-width : 767px)";
+$media-large: "only screen and (max-width : 1024px)";
+
+/// Base path for assets (fonts, images...),
+/// should not include trailing slash
+/// @access public
+/// @type String
+$asset-base-path: '../assets' !default;
+
+/// Asset URL builder
+/// @access private
+/// @param {String} $type - Asset type, matching folder name
+/// @param {String} $file - Asset file name, including extension
+/// @return {URL} - A `url()` function leading to the asset
+@function asset($type, $file) {
+  @return url($asset-base-path + '/' + $type + '/' + $file);
+}
+
+/// Image asset helper
+/// @access public
+/// @param {String} $file - Asset file name, including extension
+/// @return {URL} - A `url()` function leading to the image
+/// @require {function} asset
+@function image($file) {
+  @return asset('images', $file);
+}
+
+/// Font asset helper
+/// @access public
+/// @param {String} $file - Asset file name, including extension
+/// @return {URL} - A `url()` function leading to the font
+/// @require {function} asset
+@function font($file) {
+  @return asset('fonts', $file);
+}
+/*
+You can define a default that is used only if a value isn't
+assigned any place else
+
+$default-text-color: $black !default;
+*/
